@@ -4,6 +4,7 @@ import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
+import utils.OrderDAO;
 
 public class CheckoutSmokeTests extends BaseTest {
 
@@ -34,5 +35,17 @@ public class CheckoutSmokeTests extends BaseTest {
         Assert.assertTrue(
         		 completePage.getHeaderText().toLowerCase().contains("thank you"),
                  "Order should complete with a Thank You message");
+        
+        try {
+            OrderDAO.insertOrder("standard_user", "Sauce Labs Backpack", 1, 29.99);
+
+            boolean exists = OrderDAO.orderExists("standard_user", "Sauce Labs Backpack");
+            Assert.assertTrue(exists, "Order should exist in database");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail("Database operation failed: " + e.getMessage());
+        }
     }
+    
 }
