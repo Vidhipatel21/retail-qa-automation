@@ -1,0 +1,45 @@
+name: UI Smoke Tests (Edge Headless)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ui-smoke:
+    runs-on: ubuntu-latest
+
+    env:
+      HEADLESS: "true"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Install Microsoft Edge
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget gnupg
+          wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+          sudo install -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/microsoft.gpg
+          sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge.list'
+          sudo apt-get update
+          sudo apt-get install -y microsoft-edge-stable
+
+      - name: Run UI Smoke Suite
+        run: mvn -f ui-tests/pom.xml clean test
+
+      - name: Upload Extent Report + Screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-test-report
+          path: |
+            ui-tests/test-output/**
+            ui-tests/screenshots/**
