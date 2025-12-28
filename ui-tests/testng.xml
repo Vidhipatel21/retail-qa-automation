@@ -1,8 +1,13 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Retail QA Suite">
-  <test name="Smoke Tests">
-    <classes>
-      <class name="tests.SmokeTest"/>
-    </classes>
+  <test name="Smoke Suite">
+    <groups>
+      <run>
+        <include name="smoke"/>
+      </run>
+    </groups>
+    <packages>
+      <package name="tests"/>
+    </packages>
   </test>
 </suite>
