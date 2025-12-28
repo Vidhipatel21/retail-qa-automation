@@ -32,8 +32,7 @@ public class CheckoutSmokeTests extends BaseTest {
         // 4) Verify order completed
         CheckoutCompletePage completePage = new CheckoutCompletePage(driver);
         Assert.assertTrue(
-                completePage.getHeaderText().toLowerCase().contains("thank you"),
-                "Order should complete with a Thank You message"
-        );
+        		 completePage.getHeaderText().toLowerCase().contains("thank you"),
+                 "Order should complete with a Thank You message");
     }
 }
