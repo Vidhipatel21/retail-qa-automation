@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS orders (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  username TEXT,
+  username TEXT, 
   product_name TEXT,
   quantity INTEGER,
   total_price DOUBLE
