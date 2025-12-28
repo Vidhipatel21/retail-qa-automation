@@ -1,0 +1,337 @@
+{
+	"info": {
+		"_postman_id": "6da15341-84e4-41e9-bbe9-3850feb30fd7",
+		"name": "Retail API - FakeStore",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "51102000",
+		"_collection_link": "https://vidhipatel21-2227839.postman.co/workspace/65863505-cc90-4e87-88f4-98a5c2a9f589/collection/51102000-6da15341-84e4-41e9-bbe9-3850feb30fd7?action=share&source=collection_link&creator=51102000"
+	},
+	"item": [
+		{
+			"name": "GET data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "Post data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": ""
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "Retail API - FakeStore",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "GET - All Products",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 28 Dec 2025 17:53:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "100"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "99"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1763676401"
+						},
+						{
+							"key": "x-dns-prefetch-control",
+							"value": "off"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"ac3a-uk0FDUI0X0lS5liyUbIxqA7L7F4\""
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Age",
+							"value": "129069"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "cf-cache-status",
+							"value": "HIT"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Qan6IKFAXOA5pHdde3qiGRel%2BUB4PIpAXqOykffHEllP2hzUyqyKIWtvFKejVFO0wPbH7QoEZEcj%2BQ37TJ7IQbdkEZ%2BZLzd53hvUA%2Bo%3D\"}]}"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "9b52eadd1e480629-IAD"
+						}
+					],
+					"cookie": [],
+					"body": "pm.test(\"Status code is 200\", function () {\n  pm.response.to.have.status(200);\n});\n\npm.test(\"Products array exists\", function () {\n  const json = pm.response.json();\n  pm.expect(json).to.have.property(\"products\");\n  pm.expect(json.products).to.be.an(\"array\");\n  pm.expect(json.products.length).to.be.greaterThan(0);\n});\n"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dummyjson.com/products/1",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET - Single Product",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dummyjson.com/products/1",
+							"protocol": "https",
+							"host": [
+								"dummyjson",
+								"com"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 28 Dec 2025 18:04:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "100"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "99"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1763676411"
+						},
+						{
+							"key": "x-dns-prefetch-control",
+							"value": "off"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"5e6-bX+IgjHKZz+TflDmEXfyyaBO9Hk\""
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Age",
+							"value": "407067"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "cf-cache-status",
+							"value": "HIT"
+						},
+						{
+							"key": "Nel",
+							"value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=yRiNYHQl4m53TRzZL8J4ZAhtabSTVqv2J%2BRmassesbP%2FRWphDp2RE%2BP4rhiibZ9l9KH1vRdrunFpuEvwOu1WIBSV2V1TGNTYMx8BRwI%3D\"}]}"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "9b52faf9ca74290e-IAD"
+						}
+					],
+					"cookie": [],
+					"body": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Products array exists\", function () {\n    const json = pm.response.json();\n    pm.expect(json.products).to.be.an(\"array\");\n});\n\npm.test(\"Response has product data\", function () {\n    const body = pm.response.json();\n    pm.expect(body).to.have.property(\"id\");\n    pm.expect(body).to.have.property(\"title\");\n    pm.expect(body).to.have.property(\"price\");\n});\n"
+				}
+			]
+		}
+	]
+}
